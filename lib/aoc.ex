@@ -1,7 +1,10 @@
 defmodule Aoc do
-  def main do
-    {:ok, file} = File.read("./inputs/1")
-    result = Day1.pt1(file)
-    IO.puts("Day 1 pt1: " <> Integer.to_string(result))
-  end
+  @moduledoc """
+  This module provides helpers that are used across multiple days.
+  """
+
+  @doc """
+  Drops the last element of a list, reversing the list in the process
+  """
+  def dropLast(list), do: list |> Enum.reverse() |> tl()
 end

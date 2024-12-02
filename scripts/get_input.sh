@@ -89,4 +89,4 @@ if [[ -f $output ]]; then
     rm -v $output
 fi
 
-curl -v -H "Cookie:session=$cookie" $FULL_URL -o "$output"
+curl -H "Cookie:session=$cookie" $FULL_URL -o "$output"
