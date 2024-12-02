@@ -20,14 +20,13 @@ defmodule Day1 do
   end
 
   def parseLine(line) do
-    [ls, rs] =
-      line
-      |> String.split("   ")
-      |> Enum.map(&Integer.parse/1)
-      |> Enum.map(&elem(&1, 0))
-
-    {ls, rs}
+    line
+    |> String.to_charlist()
+    |> split()
   end
+
+  def split([l1, l2, l3, l4, l5, 32, 32, 32, r1, r2, r3, r4, r5]),
+    do: {List.to_integer([l1, l2, l3, l4, l5]), List.to_integer([r1, r2, r3, r4, r5])}
 
   def pt2(inp) do
     {ls, rs} = inp |> parse()
