@@ -31,6 +31,12 @@ defmodule Day1 do
   def pt2(inp) do
     {ls, rs} = inp |> parse()
 
-    ls |> Enum.map(fn l -> l * Enum.count(rs, fn x -> x == l end) end) |> Enum.sum()
+    grouped =
+      rs
+      |> Enum.group_by(fn x -> x end)
+      |> Enum.map(fn {k, v} -> {k, length(v)} end)
+      |> Enum.into(%{})
+
+    ls |> Enum.map(fn l -> l * Map.get(grouped, l, 0) end) |> Enum.sum()
   end
 end

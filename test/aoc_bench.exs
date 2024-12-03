@@ -9,7 +9,8 @@ defmodule AocBench do
       "Day 2 pt 1" => fn -> Day2.pt1(day2) end,
       "Day 2 pt 2" => fn -> Day2.pt2(day2) end
     },
-    formatters: [{Benchee.Formatters.Console, comparison: false}],
-    load: ["_build/benches/aoc.benchee"]
+    formatters: [{Benchee.Formatters.Console, comparison: false}, Benchee.Formatters.HTML],
+    profile_after: true
+    # load: ["_build/benches/aoc.benchee"]
   )
 end

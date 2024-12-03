@@ -1,6 +1,6 @@
 defmodule Day2 do
   def pt1(inp) do
-    reports = inp |> String.split("\n") |> Aoc.dropLast()
+    reports = inp |> String.trim_trailing() |> String.split("\n")
 
     reports
     |> Enum.map(fn r ->
@@ -43,7 +43,7 @@ defmodule Day2 do
   end
 
   def pt2(inp) do
-    reports = inp |> String.split("\n") |> Aoc.dropLast()
+    reports = inp |> String.trim_trailing() |> String.split("\n")
 
     reports
     |> Enum.map(fn r ->
