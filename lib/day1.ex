@@ -21,12 +21,11 @@ defmodule Day1 do
 
   def parseLine(line) do
     line
-    |> String.to_charlist()
     |> split()
   end
 
-  def split([l1, l2, l3, l4, l5, 32, 32, 32, r1, r2, r3, r4, r5]),
-    do: {List.to_integer([l1, l2, l3, l4, l5]), List.to_integer([r1, r2, r3, r4, r5])}
+  def split(<<l::5-binary, _::3-binary, r::binary>>),
+    do: {String.to_integer(l), String.to_integer(r)}
 
   def pt2(inp) do
     {ls, rs} = inp |> parse()
