@@ -52,12 +52,10 @@ defmodule AocTest do
 
   test "Day 3 pt2 parser" do
     # single digit
-    inp = "do()"
-    {:ok, [{:do, _}], _, _, _, _} = Day3.Parser.parse_pt2(inp)
     inp = "do()mul(1,2)don't()"
-    {:ok, [{:do, _}, {:mul, [1, 2]}, {:dont, _}], _, _, _, _} = Day3.Parser.parse_pt2(inp)
-    inp = "don't()"
-    {:ok, [{:dont, _}], _, _, _, _} = Day3.Parser.parse_pt2(inp)
+    {:ok, [{:mul, [1, 2]}], _, _, _, _} = Day3.Parser.parse_pt2(inp)
+    inp = "don't()mul(1,2)do()mul(3,4)"
+    {:ok, [{:mul, [3, 4]}], _, _, _, _} = Day3.Parser.parse_pt2(inp)
   end
 
   test "Day 3 pt1" do

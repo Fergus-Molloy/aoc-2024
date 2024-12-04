@@ -35,6 +35,6 @@ defmodule Day1 do
       |> Enum.map(fn {k, v} -> {k, length(v)} end)
       |> Enum.into(%{})
 
-    ls |> Enum.map(fn l -> l * Map.get(grouped, l, 0) end) |> Enum.sum()
+    ls |> Enum.reduce(0, fn l, acc -> acc + l * Map.get(grouped, l, 0) end)
   end
 end

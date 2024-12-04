@@ -13,17 +13,10 @@ defmodule Day3 do
     {:ok, out, _, _, _, _} = Day3.Parser.parse_pt2(inp)
 
     out
-    |> IO.inspect()
     |> Enum.reduce(
-      {0, :do},
-      fn
-        {:mul, [a, b]}, {acc, enabled} when enabled == :do -> {acc + a * b, enabled}
-        {:mul, _}, {acc, enabled} -> {acc, enabled}
-        {:do, _}, {acc, _} -> {acc, :do}
-        {:dont, _}, {acc, _} -> {acc, :dont}
-      end
+      0,
+      fn {:mul, [a, b]}, acc -> acc + a * b end
     )
-    |> elem(0)
   end
 
   defmodule Parser do
@@ -37,22 +30,13 @@ defmodule Day3 do
       |> ignore(string(")"))
       |> tag(:mul)
 
-    parseDo =
-      ignore(string("do()"))
-      |> tag(:do)
-
     parseDont =
-      ignore(string("don't()"))
-      |> tag(:dont)
+      string("don't()")
+      |> eventually(string("do()"))
 
     defparsec(
       :parse_pt1,
-      repeat(
-        choice([
-          parseMul,
-          ignore(utf8_char([]))
-        ])
-      )
+      repeat(eventually(parseMul))
     )
 
     defparsec(
@@ -60,8 +44,7 @@ defmodule Day3 do
       repeat(
         choice([
           parseMul,
-          parseDo,
-          parseDont,
+          ignore(parseDont),
           ignore(utf8_char([]))
         ])
       )
