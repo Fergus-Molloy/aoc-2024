@@ -67,4 +67,24 @@ defmodule AocTest do
     {:ok, file} = File.read("./inputs/3")
     assert Day3.pt2(file) == 89_798_695
   end
+
+  test "Day 4 pt1 sample" do
+    {:ok, file} = File.read("./inputs/4_sample_1")
+    assert Day4.pt1(file) == 18
+  end
+
+  test "Day 4 pt2 sample" do
+    {:ok, file} = File.read("./inputs/4_sample_2")
+    assert Day4.pt2(file) == 9
+  end
+
+  test "Day 4 pt1" do
+    {:ok, file} = File.read("./inputs/4")
+    assert Day4.pt1(file) == 2573
+  end
+
+  test "Day 4 pt2" do
+    {:ok, file} = File.read("./inputs/4")
+    assert Day4.pt2(file) == 1850
+  end
 end
