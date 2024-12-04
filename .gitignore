@@ -27,3 +27,4 @@ aoc-*.tar
 
 .cookie
 inputs
+benchmarks

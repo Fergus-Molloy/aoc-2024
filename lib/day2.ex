@@ -1,6 +1,6 @@
 defmodule Day2 do
   def pt1(inp) do
-    reports = inp |> String.trim_trailing() |> String.split("\n")
+    reports = inp |> String.split("\n", trim: true)
 
     reports
     |> Enum.map(fn r ->

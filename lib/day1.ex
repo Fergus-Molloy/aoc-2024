@@ -13,8 +13,7 @@ defmodule Day1 do
 
   def parse(inp) do
     inp
-    |> String.trim()
-    |> String.split("\n")
+    |> String.split("\n", trim: true)
     |> Enum.map(&parseLine/1)
     |> Enum.unzip()
   end
