@@ -3,7 +3,8 @@ defmodule AocBench do
     {:ok, day1} = File.read("./inputs/1")
     {:ok, day2} = File.read("./inputs/2")
     {:ok, day3} = File.read("./inputs/3")
-    {:ok, day4} = File.read("./inputs/3")
+    {:ok, day4} = File.read("./inputs/4")
+    {:ok, day5} = File.read("./inputs/5")
 
     benches = [
       {"Day 1 pt 1", fn -> Day1.pt1(day1) end},
@@ -13,13 +14,15 @@ defmodule AocBench do
       {"Day 3 pt 1", fn -> Day3.pt1(day3) end},
       {"Day 3 pt 2", fn -> Day3.pt2(day3) end},
       {"Day 4 pt 1", fn -> Day4.pt1(day4) end},
-      {"Day 4 pt 2", fn -> Day4.pt2(day4) end}
+      {"Day 4 pt 2", fn -> Day4.pt2(day4) end},
+      {"Day 5 pt 1", fn -> Day5.pt1(day5) end},
+      {"Day 5 pt 2", fn -> Day5.pt2(day5) end}
     ]
 
     options = [
       formatters: [{Benchee.Formatters.Console, comparison: false}, Benchee.Formatters.HTML]
-      # profile_after: true,
-      # save: [path: "benchmarks/aoc.benchee", tag: "base"]
+      # profile_after: true
+      # save: [path: "benchmarks/aoc.benchee", tag: "all"]
       # load: ["benchmarks/aoc.benchee"]
     ]
 

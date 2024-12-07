@@ -2,9 +2,10 @@ defmodule Day4 do
   @spec pt1(binary()) :: integer()
   def pt1(inp) do
     # look for horizontal XMAS'
+    split = inp |> String.split("\n", trim: true)
+
     hs =
-      inp
-      |> String.split("\n", trim: true)
+      split
       |> Enum.map(fn l ->
         String.to_charlist(l)
         |> Enum.chunk_every(4, 1, :discard)
@@ -18,8 +19,7 @@ defmodule Day4 do
       |> Enum.sum()
 
     vs =
-      inp
-      |> String.split("\n", trim: true)
+      split
       |> Enum.map(&String.to_charlist/1)
       |> transpose()
       |> Enum.map(fn l ->
@@ -34,8 +34,7 @@ defmodule Day4 do
       |> Enum.sum()
 
     dd =
-      inp
-      |> String.split("\n", trim: true)
+      split
       |> Enum.chunk_every(4, 1, :discard)
       |> Enum.map(fn cs ->
         Enum.map(cs, &String.to_charlist/1)
