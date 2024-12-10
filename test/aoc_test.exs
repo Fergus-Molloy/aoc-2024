@@ -142,6 +142,13 @@ defmodule AocTest do
   end
 
   @tag day: 9
+  test "Day 9 pt2 sample" do
+    {:ok, file} = File.read("./inputs/9_sample_1")
+
+    assert Day9.pt2(file) == 2858
+  end
+
+  @tag day: 9
   test "Day 9 pt1" do
     {:ok, file} = File.read("./inputs/9")
 
