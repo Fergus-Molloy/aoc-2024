@@ -44,9 +44,6 @@ defmodule Day9 do
       gap < len ->
         fill_gap([{id, len - gap} | files], 0, 0, acc + (i..(i + gap - 1) |> sum_range(id)))
 
-      gap == len ->
-        fill_gap(files, 0, 0, acc + (i..(i + gap - 1) |> sum_range(id)))
-
       gap >= len ->
         fill_gap(files, gap - len, i + len, acc + (i..(i + len - 1) |> sum_range(id)))
     end

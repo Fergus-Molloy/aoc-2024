@@ -18,11 +18,11 @@ defmodule AocBench do
       {"Day 4 pt 2", fn -> Day4.pt2(day4) end},
       {"Day 5 pt 1", fn -> Day5.pt1(day5) end},
       {"Day 5 pt 2", fn -> Day5.pt2(day5) end},
-      {"Day 9 pt 1", fn -> Day9.pt1(day9) end}
+      {"Day 9 pt 1 acc", fn -> Day9.pt1(day9) end}
     ]
 
     options = [
-      formatters: [{Benchee.Formatters.Console, comparison: false}, Benchee.Formatters.HTML]
+      formatters: [{Benchee.Formatters.Console, comparison: true}, Benchee.Formatters.HTML]
       # profile_after: true
       # save: [path: "benchmarks/aoc.benchee", tag: "all"]
       # load: ["benchmarks/aoc.benchee"]

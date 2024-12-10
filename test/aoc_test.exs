@@ -135,20 +135,6 @@ defmodule AocTest do
   end
 
   @tag day: 9
-  test "Day 9 parse" do
-    {:ok, file} = File.read("./inputs/9_sample_1")
-
-    Day9.Server.start_link()
-
-    assert [3, 3, 3, 1, 1, 1, 1, 1, 0] = Day9.parse(String.trim_trailing(file))
-    state = GenServer.call(Day9.Server, :get_state)
-    0 = state.first
-    10 = state.last
-
-    %{0 => 2, 1 => 3, 2 => 1, 3 => 3, 4 => 2} = state.files
-  end
-
-  @tag day: 9
   test "Day 9 pt1 sample" do
     {:ok, file} = File.read("./inputs/9_sample_1")
 
@@ -159,6 +145,6 @@ defmodule AocTest do
   test "Day 9 pt1" do
     {:ok, file} = File.read("./inputs/9")
 
-    assert Day9.pt1(file) == 0
+    assert Day9.pt1(file) == 6_607_511_583_593
   end
 end
