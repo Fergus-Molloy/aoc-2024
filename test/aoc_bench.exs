@@ -5,6 +5,7 @@ defmodule AocBench do
     {:ok, day3} = File.read("./inputs/3")
     {:ok, day4} = File.read("./inputs/4")
     {:ok, day5} = File.read("./inputs/5")
+    {:ok, day9} = File.read("./inputs/9")
 
     benches = [
       {"Day 1 pt 1", fn -> Day1.pt1(day1) end},
@@ -16,7 +17,8 @@ defmodule AocBench do
       {"Day 4 pt 1", fn -> Day4.pt1(day4) end},
       {"Day 4 pt 2", fn -> Day4.pt2(day4) end},
       {"Day 5 pt 1", fn -> Day5.pt1(day5) end},
-      {"Day 5 pt 2", fn -> Day5.pt2(day5) end}
+      {"Day 5 pt 2", fn -> Day5.pt2(day5) end},
+      {"Day 9 pt 1", fn -> Day9.pt1(day9) end}
     ]
 
     options = [

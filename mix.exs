@@ -22,7 +22,7 @@ defmodule Aoc.MixProject do
   defp aliases() do
     [
       bench: "run test/aoc_bench.exs",
-      fetch_input: "cmd scripts/get_input.sh"
+      get_input: "cmd scripts/get_input.sh"
     ]
   end
 
