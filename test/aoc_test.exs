@@ -154,4 +154,41 @@ defmodule AocTest do
 
     assert Day9.pt1(file) == 6_607_511_583_593
   end
+
+  @tag day: 11
+  test "Day 11 pt1 sample" do
+    {:ok, file} = File.read("./inputs/11_sample_1")
+
+    assert Day11.pt1(file) == 55312
+  end
+
+  # @tag day: 11
+  # test "Day 11 pt1 rules" do
+  #   assert {:ok, 1} = Day11.rule1(0)
+  #   assert :error = Day11.rule1(1)
+  #   assert {:ok, [12, 34]} = Day11.rule2(1234)
+  #   assert :error = Day11.rule2(12345)
+  #   assert 2024 = Day11.rule3(1)
+  # end
+
+  @tag day: 11
+  test "Day 11 pt1" do
+    {:ok, file} = File.read("./inputs/11")
+
+    assert Day11.pt1(file) == 186_175
+  end
+
+  @tag day: 11
+  test "Day 11 pt2" do
+    {:ok, file} = File.read("./inputs/11")
+
+    assert Day11.pt2(file) == 220_566_831_337_810
+  end
+
+  @tag day: 16
+  test "Day 16 pt1" do
+    {:ok, file} = File.read("./inputs/16_sample_1")
+
+    assert Day16.pt1(file) == 0
+  end
 end
